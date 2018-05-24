@@ -1,0 +1,56 @@
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="box box-info with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title"><strong>Loan Your Money</strong></h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item"><strong><i class="fa fa-money"> </i> Loan Pocket : <i class="fa fa-dollar"> </i> {{ thisMyP2pPocket.strLoanPocket }}.00 </strong></li>
+                <li class="list-group-item"><strong>  @ Interest :  {{ thisMyP2pPocket.strInterest }} %</strong></li>
+
+                <li class="list-group-item">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" id="strLoanPocket" name="vstrLoanPocket">
+                        <span class="input-group-addon">.00</span>
+                    </div>
+                </li>
+                <li class="list-group-item"><button type="button" class="btn btn-success btn-block" id="AllocateToLoanPocketButt"><strong> <i class="fa fa-money"> </i>  Allocate to Pocket </strong></button> </li>
+                <li class="list-group-item"><strong><i class="fa fa-money"> </i> Available Balance : <i class="fa  fa-dollar"> </i> {{ thisMyP2pPocket.strBalance }}.00 </strong> </li>
+                <li class="list-group-item"><button type="button" class="btn btn-warning btn-block" id="WithdrawFromLoanPocketButt"><strong> <i class="fa fa-money"> </i> Transfer to Wallet </strong></button> </li>
+                <li class="list-group-item"><button type="button" class="btn btn-warning btn-block" id="TransferAvailableToLoanPocket"><strong> <i class="fa fa-money"> </i> Transfer to Loan Pocket</strong></button> </li>
+            </ul>
+            <div id="p2ploanYourMoneyDIVInf"></div>
+
+        </div>
+        <div class="box box-info with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title"><strong>My Loans</strong></h3>
+            </div>
+                <button class="btn btn-primary btn-block" id="LoanRequestsButt"><strong> <i class="fa fa-money"> </i> Loan Requests</strong></button>
+                <button class="btn btn-primary btn-block" id="ActiveLoansButt"><strong> <i class="fa fa-money"> </i> Active Loans</strong></button>
+        </div>
+
+        <div class="box box-info with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title"><strong>Get Loans</strong></h3>
+            </div>
+                <button class="btn btn-primary btn-block" id="AvailableLoansButt"><strong> <i class="fa fa-money"> </i> Available Loans</strong></button>
+                <button class="btn btn-primary btn-block" id="LoansTakenButt"><strong> <i class="fa fa-money"> </i> Loans Taken</strong></button>
+        </div>
+
+        <div class="box box-info with-border">
+            <div class="box box-header with-border">
+                <h3 class="box-title"><strong>Financiers</strong></h3>
+            </div>
+            <button class="btn btn-primary btn-block" id="BestFinanciersButt"><strong> <i class="fa fa-money"> </i> Loan Financiers </strong></button>
+
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div id="LoansInfoDIV"></div>
+
+    </div>
+</div>
+<script src="/static/dist/js/pages/p2ploans/p2ploans.js"></script>

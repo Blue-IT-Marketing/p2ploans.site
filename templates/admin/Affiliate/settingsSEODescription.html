@@ -1,0 +1,23 @@
+<div class="box box-info with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">SEO Description</h3>
+    </div>
+    <div class="box box-body with-border">
+        {% if thisLandingPage.strLPSEODescription is not none %}
+        <textarea id="strSEODescription">{{ thisLandingPage.strLPSEODescription }}</textarea>
+        {% else %}
+        <textarea id="strSEODescription"></textarea>
+        {% endif %}
+
+        <div class="form-group">
+            <button type="button" class="btn btn-bitbucket btn-block" id="SEODescriptionButts"><strong><i class="fa fa-cloud"> </i> Update SEO Description </strong></button>
+        </div>
+    </div>
+    <div class="box box-footer with-border">
+        <div id="SEODescriptionINFDiv"></div>
+    </div>
+</div>
+<script src="/static/dist/js/ckeditorstandard/ckeditor.js"></script>
+<script src="/static/dist/js/pages/affiliate/seodescription.js"></script>
+<script src="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>$(function () {CKEDITOR.replace('strSEODescription');$(".textarea").wysihtml5();});</script>

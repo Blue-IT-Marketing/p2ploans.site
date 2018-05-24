@@ -1,0 +1,24 @@
+
+<div class="box box-info with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">SEO Title</h3>
+    </div>
+    <div class="box box-body with-border">
+        <div class="form-group">
+            {% if thisLandingPage.strSEOTitle is not none %}
+                <input type="text" class="form-control" id="strSEOTitle" value="{{ thisLandingPage.strSEOTitle }}">
+            {% else %}
+                <input type="text" class="form-control" id="strSEOTitle" placeholder="SEO Title for your Landing Page">
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-bitbucket btn-block" id="UpdateSEOTitleButt"><strong> <i class="fa fa-cloud"> </i> Update SEO Title </strong></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div id="SEOTitleINFDIv"></div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/affiliate/seotitle.js"></script>

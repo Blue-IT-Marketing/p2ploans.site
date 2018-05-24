@@ -1,0 +1,6 @@
+queue:
+- name : chat-queue
+  rate: 3/s
+  bucket_size: 240
+  max_concurrent_requests: 25
+

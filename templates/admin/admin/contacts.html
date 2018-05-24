@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Messaging</h3>
+    </div>
+     <table id="ContactTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                      <th>Fullnames</th>
+                      <th>Email</th>
+                      <th>Cell</th>
+                      <th>Subject</th>
+                      <th>Message</th>
+                      <th>Respond</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for thisContact in thisContactList %}
+                    <tr>
+                        <td>{{ thisContact.strFullNames }}</td>
+                        <td>{{ thisContact.strEmail }}</td>
+                        <td>{{ thisContact.strCell }}</td>
+                        <td>{{ thisContact.strSubject }}</td>
+                        <td>{{ thisContact.strMessage }}</td>
+                        <td><a href="/admin/messaging/read/{{ thisContact.strMessageIndex }}" type="button" class="btn btn-primary btn-block" id="ComposeResponseButt"><strong> <i class="glyphicon glyphicon-envelope"> </i> Compose</strong></a> </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                      <th>Fullnames</th>
+                      <th>Email</th>
+                      <th>Cell</th>
+                      <th>Subject</th>
+                      <th>Message</th>
+                      <th>Respond</th>
+                    </tr>
+                </tfoot>
+     </table>
+
+</div>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/dist/js/pages/admin/contacts.js"></script>
+<!-- page script -->
+<script>$(function () {$('#ContactTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>

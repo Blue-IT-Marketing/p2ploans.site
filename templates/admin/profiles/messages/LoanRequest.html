@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+<div class="box box-info with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Messaging</h3>
+    </div>
+    <div class="box box-body with-border">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Send loan Request</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <input type="hidden" id="vstrReference" value="{{ vstrReference }}">
+              <div class="form-group">
+                <input class="form-control" id="strSubject" placeholder="Subject:">
+              </div>
+              <div class="form-group">
+                    <textarea id="composetextarea" class="form-control" style="height: 300px">
+
+                    </textarea>
+              </div>
+              <div class="form-group">
+                <div class="btn btn-default btn-file">
+                  <i class="fa fa-paperclip"></i> Attachment
+                  <input type="file" name="attachment">
+                </div>
+                <p class="help-block">Max. 32MB</p>
+              </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <div class="pull-right">
+                <button type="button" class="btn btn-default"><i class="fa fa-pencil"></i> Draft</button>
+                <button type="button" class="btn btn-primary" id="SendButt"><i class="fa fa-envelope-o"></i> Send</button>
+              </div>
+              <button type="reset" class="btn btn-default" id="DiscardButt"><i class="fa fa-times"></i> Discard</button>
+            </div>
+            <div class="box box-footer with-border">
+                <div id="MessagingINFDIV"></div>
+            </div>
+          </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/profiles/messages/loanrequests.js"></script>
+<script src="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>$(function () {$("#composetextarea").wysihtml5();});</script>

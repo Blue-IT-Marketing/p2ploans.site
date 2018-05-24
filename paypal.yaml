@@ -1,0 +1,10 @@
+handlers:
+
+- url: /depositsuccesful
+  script: paypal.app
+- url: /depositcancelled
+  script: paypal.app
+
+- url: /paypalIPN0485234hhisidf683475bknbjsdf9843
+  script: paypal.app
+

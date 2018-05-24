@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Withdrawals</h3>
+    </div>
+     <table id="withdrawalstable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                      <th>Reference</th>
+                      <th>Total Owed</th>
+                      <th>Total Paid</th>
+                      <th>Pay Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for thisPayment in thisTodaysPaymentsList %}
+                    <tr>
+                        <td>{{ thisPayment.strReference }}</td>
+                        <td>{{ thisPayment.strAmountToPay }}</td>
+                        <td>{{ thisPayment.strPaidAmount }}</td>
+                        <td>{{ thisPayment.strPayMethod }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                      <th>Reference</th>
+                      <th>Total Owed</th>
+                      <th>Total Paid</th>
+                      <th>Pay Method</th>
+                    </tr>
+                </tfoot>
+     </table>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#withdrawalstable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>

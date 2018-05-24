@@ -1,0 +1,32 @@
+handlers:
+
+- url: /campaigns
+  script: campaigns.app
+
+- url: /campaigns/mycampaigns
+  login: required
+  script: campaigns.app
+
+- url: /campaigns/create
+  login: required
+  script: campaigns.app
+
+- url: /campaigns/applyboost
+  login: required
+  script: campaigns.app
+
+- url: /campaigns/detail/.*
+  login: required
+  script: campaigns.app
+
+- url: /campaigns/public/.*
+  login: required
+  script: campaigns.app
+
+- url: /campaigns/sendfunds
+  login: required
+  script: campaigns.app
+
+- url: /campaigns/likes
+  login: required
+  script: campaigns.app

@@ -1,0 +1,39 @@
+
+
+<div class="box">
+    <div class="box box-info with-border">
+        <div class="box box-header with-border">
+            <h3 class="box-title">Active Loans</h3>
+        </div>
+        <div class="box box-body with-border">
+            <table id="ActiveLoansTable" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th><strong> <i class="fa fa-user"> </i> Client ID</strong></th>
+                  <th><strong> <i class="fa fa-money"> </i> Loan Amount</strong></th>
+                  <th><strong> <i class="glyphicon glyphicon-time"> </i> Date Time</strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for thisActiveLoan in thisActiveLoansList %}
+                <tr>
+                    <td><a href="/p2ploans/availableloans/{{ thisActiveLoan.strTakenByReference }}">{{ thisActiveLoan.strTakenByReference }}</a></td>
+                    <td>$ {{ thisActiveLoan.strLoanAmount }}.00</td>
+                    <td>{{ thisActiveLoan.strDateTimeTaken }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th><strong> <i class="fa fa-user"> </i> Client ID</strong></th>
+                  <th><strong> <i class="fa fa-money"> </i> Loan Amount</strong></th>
+                  <th><strong> <i class="glyphicon glyphicon-time"> </i> Date Time</strong></th>
+                </tr>
+                </tfoot>
+              </table>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>$(function () {$('#ActiveLoansTable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": false});});</script>

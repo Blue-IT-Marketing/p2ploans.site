@@ -1,0 +1,33 @@
+
+
+<div class="box box-body with-border">
+     <table id="ProfilesTable" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Profile Name</th>
+                  <th>Intro</th>
+                  <th>NickName</th>
+                  <th>Likes</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for thisProfile in thisProfileList %}
+                <tr>
+                    <td><a href="/profiles/public/{{ thisProfile.strReference }}">{{ thisProfile.strProfileName }}</a></td>
+                    <td>{{ thisProfile.strProfileIntro }}</td>
+                    <td>{{ thisProfile.strNickname }}</td>
+                    <td>{{ thisProfile.strLikes }}</td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Profile Name</th>
+                  <th>Intro</th>
+                  <th>NickName</th>
+                  <th>Likes</th>
+                </tr>
+                </tfoot>
+              </table>
+</div>

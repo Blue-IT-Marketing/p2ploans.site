@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wallet WithDraw | P2P Loans | Peer to Peer Loans</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <div id="MainHeaderDiv"></div>
+   <div id="SideBarDiv"></div>
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Wallet WithDraw Funds - P2P Loans
+        <small>Peer to Peer Loans</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/static"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Wallet</li>
+        <li class="active">WithDraw</li>
+      </ol>
+    </section>
+    <section class="content">
+<div class="row">
+<div class="col-md-4">
+      <div class="callout callout-info">
+      <h4 class="box-title">How to WithDraw Funds</h4>
+      </div>
+      <div class="callout callout-success">
+        <span>if you had already set the auto withdraw option on the settings tab of your profile or wallet then there is
+        no need to use this form to request a withdrawal as all your available funds will be withdrawn to your paypal
+        account on the next payment cycle.</span><br>
+
+        <span>Using this form you can manually set the exact amount you want withdrawn at the next payment cycle, this means
+        that this form will overwrite auto withdrawal settings and then only withdraw the amount requested in this form</span>
+      </div>
+<div class="box box-primary">
+  <div class="box box-header with-border">
+     <h3 class="box-title">Wallet Withdrawal</h3>
+  </div>
+
+  <div class="box-body box-profile">
+    <div class="form-group">
+
+      <form name="withdrawalrequest" action="/withdrawfunds" method="post">
+        <div class="box box-body">
+              <label for="vstrWithDrawAmount" title="Withdrawal Amount Must Be Equal to or Less Than The Balance Owed From Your Wallet">Amount Limit : $ {{ vstrWalletBalanceOwed }}</label>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="vstrWithDrawAmount" name="strWithDrawAmount">
+                <span class="input-group-addon">.00</span>
+              </div>
+
+                <!-- radio -->
+                <div class="form-group">
+                  <div class="radio">
+                    <label title="Speed WithDrawal Will Be Processed within 24 Hours and a Processing Fee of 10%">
+                      <input type="radio" name="WithDrawalType" id="optionsRadios1" value="SpeedWithDrawal" checked>
+                      Speed Withdrawal
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label title="Normal WithDrawal will be processed at the end of the Trading Cycle and a Processing Fee of 5%">
+                      <input type="radio" name="WithDrawalType" id="optionsRadios2" value="NormalWithDrawal">
+                      Normal Withdrawal
+                    </label>
+                  </div>
+                </div>
+          </div>
+
+          <div class="box-footer">
+                 <a href="/wallet"><button type="button" class="btn btn-info pull-left">Cancel Request</button></a>
+                  <button type="submit" class="btn btn-info pull-right">Send Request</button>
+          </div>
+          {% if Message %}
+          <div class="box-footer">
+            <p class="alert-danger">{{ Message }}</p>
+          </div>
+          {% endif %}
+
+      </form>
+    </div>
+
+  </div>
+
+
+    </div>
+</div>
+  </div>
+    </section>
+  </div>
+  <div id="FooterDiv"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/pages/loaders.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+</body>
+</html>

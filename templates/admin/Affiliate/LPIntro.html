@@ -1,0 +1,27 @@
+<div class="box box-info with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Landing Page Introduction</h3>
+    </div>
+    <div class="box box-body with-border">
+        <div class="form-group">
+            {% if thisLandingPage.strLPIntroduction is not none %}
+                <textarea id="strLPIntro">{{ thisLandingPage.strLPIntroduction }}</textarea>
+            {% else %}
+                <textarea id="strLPIntro"></textarea>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-bitbucket btn-block" id="LPIntroButton"><strong><i class="fa fa-save"> </i> Landing Page Introduction Update </strong></button>
+            </div>
+        </div>
+    </div>
+    <div class="box box-footer with-border">
+        <div id="LPIntroINFDivision"></div>
+
+    </div>
+</div>
+<script src="/static/dist/js/ckeditorstandard/ckeditor.js"></script>
+<script src="/static/dist/js/pages/affiliate/lpintro.js"></script>
+<script src="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>$(function () {CKEDITOR.replace('strLPIntro');$(".textarea").wysihtml5();});</script>

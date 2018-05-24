@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+<div class="box box-body with-border">
+    <div class="box box-header with-border">
+        <h3 class="box-title">Profiles</h3>
+    </div>
+     <table id="profilestable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                      <th>Profile Name</th>
+                      <th>Intro</th>
+                      <th>Full Names</th>
+                      <th>Surname</th>
+                      <th>Nickname</th>
+                      <th>PayPal Email</th>
+                      <th>Email</th>
+                      <th>Cell</th>
+                      <th>Website</th>
+                      <th>Activation</th>
+                      <th>Wallet</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                {% for thisProfile in thisProfilesList %}
+                    <tr>
+                        <td><a href="/admin/profiles/{{ thisProfile.strReference }}">{{ thisProfile.strProfileName }}</a></td>
+                        <td>{{ thisProfile.strProfileIntro }}</td>
+                        <td>{{ thisProfile.strFullNames }}</td>
+                        <td>{{ thisProfile.strSurname }}</td>
+                        <td>{{ thisProfile.strNickname }}</td>
+                        <td>{{ thisProfile.strPayPalEmail }}</td>
+                        <td>{{ thisProfile.strEmail }}</td>
+                        <td>{{ thisProfile.strCell }}</td>
+                        <td>{{ thisProfile.strWebsite }}</td>
+                        <td>{{ thisProfile.strProfileActivated }}</td>
+                        <td>{{ thisProfile.strWallet }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                      <th>Profile Name</th>
+                      <th>Intro</th>
+                      <th>Full Names</th>
+                      <th>Surname</th>
+                      <th>Nickname</th>
+                      <th>PayPal Email</th>
+                      <th>Email</th>
+                      <th>Cell</th>
+                      <th>Website</th>
+                      <th>Activation</th>
+                      <th>Wallet</th>
+                    </tr>
+                </tfoot>
+     </table>
+</div>
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/dist/js/moment.min.js"></script>
+<script>$(function () {$('#profilestable').DataTable({"paging": true,"lengthChange": true,"searching": true,"ordering": true,"info": true,"autoWidth": true});});</script>

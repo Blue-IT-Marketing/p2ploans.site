@@ -1,0 +1,348 @@
+
+
+<div class="box box-info with-border">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box box-body with-border">
+                <a href="#innerAccountDetails" type="button" class="btn btn-bitbucket btn-block" data-toggle="tab"><strong> <i class="glyphicon glyphicon-transfer"> </i> Linked Accounts </strong></a>
+                <a href="#innerWallet" type="button" class="btn btn-bitbucket btn-block" data-toggle="tab"><strong> <i class="fa fa-credit-card"> </i> Wallet</strong></a>
+                <a href="#innerWithDrawals" type="button" class="btn btn-bitbucket btn-block" data-toggle="tab"><strong><i class="fa fa-circle-o-notch"> </i> Withdrawals</strong></a>
+                <a href="#innerDeposits" type="button" class="btn btn-bitbucket btn-block" data-toggle="tab"><strong> <i class="fa fa-cc-visa"> </i> Deposits</strong></a>
+                <a href="#innerTransactions" type="button" class="btn btn-bitbucket btn-block" data-toggle="tab"><strong> <i class="fa fa-area-chart"> </i> Transactions</strong></a>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" id="innerAccountDetails">
+                  <div class="box box-info with-border">
+                      <div class="box box-title with-border">
+                          <h3><strong> <i class="glyphicon glyphicon-transfer"> </i> Account Details</strong></h3>
+                      </div>
+                      <div class="box box-body with-border">
+                          <div class="box box-title with-border">
+                              <h3><strong> <i class="fa fa-bank"> </i> Bank Account</strong></h3>
+                          </div>
+                          <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="strAccountHolder" class="col-sm-3 control-label pull-left" title="">Account Holder</label>
+                                    <div class="col-sm-6">
+                                        {% if thisBankAccount.strAccountHolder is not none %}
+                                        <input type="text" class="form-control" id="strAccountHolder" value="{{ thisBankAccount.strAccountHolder }}">
+                                        {% else %}
+                                        <input type="text" class="form-control" id="strAccountHolder" placeholder="Account Holder">
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="strBankName" class="col-sm-3 control-label pull-left" title="">Bank</label>
+                                    <div class="col-sm-6">
+                                        <select id="strBankName">
+                                            <option value="FNBRMB">FNB/RMB</option>
+                                            <option value="ABSA Bank">ABSA Bank</option>
+                                            <option value="Capitec Bank">Capitec Bank</option>
+                                            <option value="Nedbank Limited">Nedbank Limited</option>
+                                            <option value="Standard Bank">Standard Bank</option>
+                                            <option value="African Bank">African Bank</option>
+                                            <option value="Albaraka Bank">Albaraka Bank</option>
+                                            <option value="Bank of Athens">Bank of Athens</option>
+                                            <option value="Bidvest Bank">Bidvest Bank</option>
+                                            <option value="BNP Paribas">BNP Paribas</option>
+                                            <option value="CitiBank">CitiBank</option>
+                                            <option value="FinBond Mutual Bank">FinBond Mutual Bank</option>
+                                            <option value="Grindrod Bank">Grindrod Bank</option>
+                                            <option value="Habib Overseas Bank">Habib Overseas Bank</option>
+                                            <option value="HBZ Bank">HBZ Bank</option>
+                                            <option value="HSBC Bank">HSBC Bank</option>
+                                            <option value="Investec Bank">Investec Bank</option>
+                                            <option value="Ithala">Ithala</option>
+                                            <option value="JP Morgan Chase">JP Morgan Chase</option>
+                                            <option value="Lesotho Post Bank">Lesotho Post Bank</option>
+                                            <option value="Mercantile Bank">Mercantile Bank</option>
+                                            <option value="Olympus Mobile">Olympus Mobile</option>
+                                            <option value="Peoples Bank Ltd Inc NBS">Peoples Bank Ltd Inc NBS</option>
+                                            <option value="PostBank">PostBank</option>
+                                            <option value="S.A. Reserve Bank">S.A. Reserve Bank</option>
+                                            <option value="SASFIN Bank">SASFIN Bank</option>
+                                            <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+                                            <option value="State Bank of India">State Bank of India</option>
+                                            <option value="UBank Limited">UBank Limited</option>
+                                            <option value="Unibank">Unibank</option>
+                                            <option value="VBS Mutual Bank">VBS Mutual Bank</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="strBranchCode" class="col-sm-3 control-label pull-left" title="">Branch Code</label>
+                                    <div class="col-sm-6">
+                                        {% if thisBankAccount.strBranchCode is not none %}
+                                        <input type="text" class="form-control" id="strBranchCode" value="{{ thisBankAccount.strBranchCode }}">
+                                        {% else %}
+                                        <input type="text" class="form-control" id="strBranchCode" placeholder="Branch Code">
+                                        {% endif %}
+                                    </div>
+
+                                </div>
+                              <div class="form-group">
+                                  <label for="strAccountNumber" class="col-sm-3 control-label pull-left" title="">Account Number</label>
+                                  <div class="col-sm-6">
+                                      {% if thisBankAccount.strAccountNumber is not none %}
+                                        <input type="text" class="form-control" id="strAccountNumber" value="{{ thisBankAccount.strAccountNumber }}">
+                                      {% else %}
+                                        <input type="text" class="form-control" id="strAccountNumber" placeholder="Account Number">
+                                      {% endif %}
+
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                    <label for="strAccountType" class="col-sm-3 control-label pull-left" title="">Account Type</label>
+                                    <div class="col-sm-6">
+                                        {% if thisBankAccount.strAccountType is not none %}
+                                            <input type="text" class="form-control" id="strAccountType" value="{{ thisBankAccount.strAccountType }}">
+                                        {% else %}
+                                            <select id="strAccountType">
+                                                <option value="Savings">Savings</option>
+                                                <option value="Cheque">Cheque</option>
+                                                <option value="Transmission">Transmission</option>
+                                            </select>
+                                        {% endif %}
+                                    </div>
+                              </div>
+                          </form>
+
+                      </div>
+                      <div class="box box-body with-border">
+                          <div class="box box-title with-border">
+                              <h3><strong> <i class="fa fa-paypal"> </i> PayPal</strong></h3>
+                          </div>
+                          <form class="form-horizontal">
+                              <div class="form-group">
+                                   <label for="strPayPalEmail" class="col-sm-3 control-label pull-left" title="">PayPal Email</label>
+                                  <div class="col-sm-6">
+                                      {% if thisProfile.strPayPalEmail is not none %}
+                                        <input type="text" class="form-control" id="strPayPalEmail" value="{{ thisProfile.strPayPalEmail }}">
+                                      {% else %}
+                                        <input type="text" class="form-control" id="strPayPalEmail" placeholder="PayPal Email Address">
+                                      {% endif %}
+                                  </div>
+
+                              </div>
+                          </form>
+                      </div>
+                      <div class="box box-footer with-border">
+                          <div class="form-group">
+                              <div class="col-sm-6">
+                                  <button type="button" class="btn btn-bitbucket btn-block" id="SaveLinkedAccountsButt"><strong> <i class="fa fa-save"> </i> Update Account Details</strong></button>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <div id="LinkedAccountsINFDiv"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="active tab-pane" id="innerWallet">
+                <div class="box box-info with-border">
+                  <div class="box box-title with-border">
+                    <h3><strong> <i class="fa fa-credit-card"> </i>  Wallet</strong></h3>
+                  </div>
+                  <div class="box box-body with-border">
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Available Balance : $ {{ thisProfile.strWallet }}.00</strong></li>
+                      <li class="list-group-item"><strong>Total Funds Sent : $ {{ thisProfile.strTotalFundsSent }}.00</strong></li>
+                      <li class="list-group-item"><strong>Total Funds Received : $ {{ thisProfile.strTotalFundsReceived }}.00</strong></li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+              <div class="tab-pane" id="innerWithDrawals">
+                    <div class="box box-body with-border">
+                      <div class="box box-title with-border">
+                          <h3><strong> <i class="fa fa-circle-o-notch"> </i>  Withdrawal</strong></h3>
+                      </div>
+                      <div class="box box-body with-border">
+                          <div class="box box-title with-border">
+                                <h3>Withdrawal Schedule</h3>
+                          </div>
+                        <ul class="list-group">
+                          <li class="list-group-item"><strong>Scheduled Withdrawal Amount : $ {{ thisProfile.strWithdraw }}.00 </strong></li>
+
+                          {% if thisProfile.strScheduleWithdrawal is not none %}
+                              <li class="list-group-item"><strong>Date Scheduled : <i class="fa fa-calendar-times-o"> </i> {{ thisProfile.strScheduleWithdrawal }} </strong></li>
+                          {% else %}
+                              <li class="list-group-item"><strong>Date Scheduled : No Scheduled Withdrawals </strong></li>
+                          {% endif %}
+                            <li class="list-group-item"><strong>Withdrawal Method : {{ thisProfile.strWithDrawMethod }}</strong></li>
+
+                          <li class="list-group-item"><button type="button" class="btn btn-warning" id="CancelWithDrawButton"><strong><i class="fa fa-calendar-times-o"> </i> Cancel Withdrawal</strong></button></li>
+
+                        </ul>
+                      </div>
+                      <div class="box box-title with-border">
+                        <h3>Withdraw your Funds</h3>
+                      </div>
+                      <form class="form-horizontal">
+
+                        <div class="form-group">
+                            <label for="strWithdrawalMethod" class="col-sm-3 control-label pull-left" title="">Withdrawal Method</label>
+                            <div class="col-sm-6">
+                                <select id="strWithdrawalMethod">
+                                    <option value="BankAccount">Bank Account</option>
+                                    <option value="PayPal">PayPal</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                           <label for="strWithDrawalAmount" class="col-sm-3 control-label pull-left" title="Please Indicate the Amount you wish to Withdraw">Withdrawal Amount</label>
+                           <div class="col-sm-6">
+                             <input type="text" id="strWithDrawalAmount" name="vstrWithDrawalAmount">
+                           </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-6">
+                            <button type="button" class="btn btn-success btn-block" id="WithdrawButt"><i class="fa fa-money"> </i> <strong> Withdraw</strong> </button>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-6">
+                            <div id="WithdrawalINFDIV"></div>
+                          </div>
+                        </div>
+                      </form>
+                      <div class="box box-comments with-border">
+                          <div class="box box-title with-border">
+                              <h3>Note</h3>
+                          </div>
+                          <div class="box box-comment with-border">
+                              <h3>PayPal Withdrawals</h3>
+                              Note that if your withdrawals are going to made into your PayPal Account make sure you updated your profile with the email address attached to your paypal account if
+                              not then please create your paypal account and update your profile.
+                              <a href="http://paypal.com" target="_blank"> <strong><i class="fa fa-paypal"> </i> PayPal Account</strong></a>
+
+
+                          </div>
+                          <div class="box box-comment with-border">
+                              <h3>Bank Account</h3>
+                              Note Bank Account withdrawals is only valid for South African Bank Accounts, if you hold a South African bank Account please update your Bank Account
+                              Details on your Profile before the date of the scheduled withdrawal if your account details are already valid then continue.
+                          </div>
+                          </div>
+                        </div>
+
+              </div>
+              <div class="tab-pane" id="innerDeposits">
+                    <div class="box box-info with-border">
+                        <div class="box box-title with-border">
+                            <h3><a href="#"><i class="fa fa-paypal"> </i> <strong>PayPal Deposits</strong></a></h3>
+                        </div>
+                        <div class="box box-body with-border">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="VSQQ2JGXPP8F2">
+                        <div class="form-group">
+                        <h3><i class="fa fa-paypal"> </i> <strong>PayPal / Credit Card Deposits</strong></h3>
+                        <label for="currency_code" title="Select Deposit Amount or a Multiple Thereof">Select Deposit</label>
+                        <table>
+                        <tr>
+                            <td>
+                                <input type="hidden" name="on0" value="Deposit Amounts">Deposit Amounts
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <select name="os0" style="width: 100%;">
+                                <option value="Small Deposit">Small Deposit $10.00 USD</option>
+                                <option value="Medium">Medium $50.00 USD</option>
+                                <option value="Large">Large $100.00 USD</option>
+                                <option value="Extra Large">Extra Large $500.00 USD</option>
+                            </select>
+                            </td>
+                        </tr>
+                        </table>
+                        <input type="hidden" name="currency_code" id="currency_code" value="USD">
+
+                        </div>
+
+
+                        <div class="form-group">
+                           <label>
+                           <button type="submit" class="btn btn-info pull-left"><i class="fa fa-paypal"> </i> <strong>PayPal Deposit</strong></button>
+                           </label>
+                        </div>
+                        <div class="box box-comments">
+                            <div class="box box-comment with-border">
+                                <h3>Note</h3>
+                                In order to make a deposit with your credit card or debit card please select an amount
+                                you wish to deposit / (or a multiple of the amount) and then click on process deposit use the quantity
+                                field to get to the total of the amount you wish to deposit for example 10.00 with quantity of 4 will give
+                                a total of $ 40.00. then click on continue on the next screen click on credit card or debit card, then select
+                                your country and then fill in the card details, agree to the User Agreement and then press of Agree & Pay Button.
+                                your deposit will be reflected on https://p2pLoans.com
+                            </div>
+                        </div>
+                        </form>
+<script>
+    paypal.Button.render({
+        env: 'production', // Optional: specify 'sandbox' environment
+        payment: function(resolve, reject) {
+            var CREATE_PAYMENT_URL = 'https://my-store.com/paypal/create-payment';
+            paypal.request.post(CREATE_PAYMENT_URL)
+                .then(function(data) { resolve(data.paymentID); })
+                .catch(function(err) { reject(err); });
+        },
+        onAuthorize: function(data) {
+            var EXECUTE_PAYMENT_URL = 'https://www.p2pLoans.com/paypal/execute-payment';
+            paypal.request.post(EXECUTE_PAYMENT_URL,
+                    { paymentID: data.paymentID, payerID: data.payerID })
+                .then(function(data) { /* Go to a success page */ })
+                .catch(function(err) { /* Go to an error page  */ });
+        }
+
+    }, '#paypal-button');
+</script>
+
+                      </div>
+                    </div>
+                    <div class="box box-info with-border">
+                        <div class="box box-title with-border">
+                            <h3><a href="#"><i class="fa fa-credit-card"> </i>  <strong>Direct Deposit</strong></a></h3>
+                        </div>
+                        <div class="box box-body with-border">
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong><i class="fa fa-bank"> </i> Bank Name : FNB </strong></li>
+                                <li class="list-group-item"><strong><i class="fa fa-bank"> </i> Account Number : 62629494767 </strong></li>
+                                <li class="list-group-item"><strong><i class="fa fa-bank"> </i> Account Type : Cheque </strong></li>
+                                <li class="list-group-item"><strong><i class="fa fa-bank"> </i> Branch Code : 250655 </strong></li>
+                                <li class="list-group-item"><strong><i class="fa fa-bank"> </i> Your Reference : {{ thisProfile.ConfirmCode }} </strong></li>
+                            </ul>
+                            <strong>NOTE</strong>
+                            <ol class="list-group">
+                            <li class="list-group-item"> <i class="glyphicon glyphicon-text-background"> </i> Please use your reference when depositing money into your account failure to do so will result in failure to reflect your deposit accurately
+                            </li>
+                            <li class="list-group-item"> <i class="glyphicon glyphicon-text-background"> </i> Note: None South African Citizens are advised to make use of our <strong>PayPal Deposit Option to make a deposit </strong></li>
+                            </ol>
+                        </div>
+                    </div>
+              </div>
+              <div class="tab-pane" id="innerTransactions">
+                  <div class="box box-info with-border">
+                      <div class="box box-title with-border">
+                          <h3><strong> <i class="fa fa-area-chart"> </i> Transactions</strong></h3>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="/static/dist/js/pages/wallet/wallet.js"></script>

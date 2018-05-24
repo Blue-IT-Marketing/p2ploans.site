@@ -1,0 +1,13 @@
+handlers:
+
+- url: /wallet
+  login: required
+  script: Wallet.app
+
+- url: /wallet/withdraw
+  login: required
+  script: Wallet.app
+
+- url: /wallet/cancelwithdrawal
+  login: required
+  script: Wallet.app

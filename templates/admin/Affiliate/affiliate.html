@@ -1,0 +1,39 @@
+<div class="box">
+    <div class="box box-info with-border">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                        <h3 class="box-title">Quick Stats</h3>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Total Affiliates : {{ thisMyAffiliates.strTotalAffiliates }} </strong></li>
+                        <li class="list-group-item"><strong>Subscriptions Income : {{ thisMyAffiliates.strSubscriptionIncome }} </strong></li>
+                        <li class="list-group-item"><strong>Loans Income : {{ thisMyAffiliates.strLoansIncome }} </strong></li>
+                        <li class="list-group-item"><strong>Crowd Funding Income : {{ thisMyAffiliates.strCrowdFundingIncome }} </strong></li>
+                        <li class="list-group-item"><strong>Total Income : {{ thisMyAffiliates.strTotalIncome }}</strong></li>
+                        <li class="list-group-item"><strong>Available Funds : {{ thisMyAffiliates.strAvailable }}</strong></li>
+                        <li class="list-group-item"><button type="button" class="btn btn-bitbucket btn-block" id="TransferFundToWalletButt"><strong><i class="fa fa-money"> </i> Transfer to Wallet</strong></button></li>
+                    </ul>
+                </div>
+                <div class="box box-body with-border">
+                    <div class="box box-header with-border">
+                         <h3 class="box-title">Dashboard</h3>
+                    </div>
+                    <button type="button" class="btn btn-success btn-block" id="FullStatsButt"><strong> <i class="fa fa-bar-chart"> </i> My Stats</strong></button>
+                    <button type="button" class="btn btn-success btn-block" id="MyAffiliatesButt"><strong> <i class="fa fa-user-plus"> </i> My Affiliates</strong></button>
+                    <button type="button" class="btn btn-success btn-block" id="RunPromotionsButt"><strong> <i class="fa fa-share-alt"> </i> My Promotions</strong></button>
+                    <button type="button" class="btn btn-success btn-block" id="SubscriptionsButt"><strong> <i class="fa fa-credit-card"> </i> My Subscriptions</strong></button>
+                    <button type="button" class="btn btn-success btn-block" id="SettingsButt"><strong> <i class="fa fa-cog"> </i> Landing Page</strong></button>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div id="AffiliateDIVInf"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/dist/js/pages/affiliate/affiliate.js"></script>

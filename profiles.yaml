@@ -1,0 +1,29 @@
+handlers:
+
+- url: /profiles
+  login: required
+  script: profiles.app
+
+- url: /profiles/boost
+  login: required
+  script: profiles.app
+
+- url: /profiles/save
+  login: required
+  script: profiles.app
+
+- url: /profiles/inbox
+  login: required
+  script: profiles.app
+
+- url: /profiles/inbox/.*
+  login: required
+  script: profiles.app
+
+- url : /profiles/settings
+  login: required
+  script: profiles.app
+
+- url: /profiles/public/.*
+  login: required
+  script: profiles.app

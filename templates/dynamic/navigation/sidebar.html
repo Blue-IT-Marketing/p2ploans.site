@@ -1,0 +1,61 @@
+  <!-- Left side column. contains the sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../../../static/dist/img/avatar04.png" class="img-circle" alt="P2P Loans">
+        </div>
+        <div class="pull-left info">
+          {% if vstrUsername %}
+            <p>{{ vstrUsername }}</p>
+            <a href="{{ vstrLogoutURL }}"><i class="fa fa-circle text-success"></i> Sign Out</a>
+          {% else %}
+            <a href="{{ vstrLoginURL }}"><i class="fa fa-circle text-success"></i> Sign In</a>
+          {% endif %}
+
+
+        </div>
+      </div>
+
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header">p2ploans</li>
+        <li class="treeview">
+        {% if vstrUsername %}
+          <li><a href="/"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+          <li><a href="/about"><i class="glyphicon glyphicon-info-sign"></i> About</a></li>
+          <li><a href="/contact"><i class="glyphicon glyphicon-envelope"></i> Contact</a></li>
+
+          {% if strActivated == False %}
+            <li><a href="/register"><i class="glyphicon glyphicon-saved"></i> Activation</a></li>
+          {% endif %}
+
+          <li><a href="/profiles"><i class="glyphicon glyphicon-user"> </i> My Profile </a></li>
+          <li><a href="/p2ploans/list"><i class="glyphicon glyphicon-list-alt"> </i> P2P Loans</a></li>
+          <li><a href="/faq"><i class="glyphicon glyphicon-question-sign"> </i> FAQ </a></li>
+          <li><a href="/admin"><i class="glyphicon glyphicon-cog"> </i> Admin </a></li>
+        {% else %}
+          <li><a href="/"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+          <li><a href="/about"><i class="glyphicon glyphicon-info-sign"></i> About</a></li>
+          <li><a href="/contact"><i class="glyphicon glyphicon-envelope"></i> Contact</a></li>
+
+          <li><a href="/p2ploans/list"><i class="glyphicon glyphicon-list-alt"> </i> P2P Loans</a></li>
+          <li><a href="/faq"><i class="glyphicon glyphicon-question-sign"> </i> FAQ </a></li>
+        {% endif %}
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>

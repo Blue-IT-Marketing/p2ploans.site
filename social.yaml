@@ -1,0 +1,9 @@
+handlers:
+- url: /social/facebook/groups
+  login: required
+  script: myfacebook.py
+
+- url: /social/facebook/cron/groups
+  login: admin
+  script: myfacebook.py
+

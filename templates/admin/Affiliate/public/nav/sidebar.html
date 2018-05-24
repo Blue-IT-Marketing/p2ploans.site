@@ -1,0 +1,38 @@
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="/static/dist/img/avatar04.png" class="img-circle" alt="P2P Loans">
+        </div>
+        <div class="pull-left info">
+          {% if vstrUsername %}
+            <p>{{ vstrUsername }}</p>
+            <a href="{{ vstrLogoutURL }}"><i class="fa fa-circle text-success"></i> Sign Out</a>
+          {% else %}
+            <a href="{{ vstrLoginURL }}"><i class="fa fa-circle text-success"></i> Sign In</a>
+          {% endif %}
+
+
+        </div>
+      </div>
+
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <ul class="sidebar-menu">
+        <li class="header">p2ploans</li>
+        <li class="treeview">
+          <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+          <li><a href="/contact"><i class="fa fa-envelope"></i> Contact</a></li>
+          <li><a href="/register"><i class="fa fa-gears"></i> Activation</a></li>
+          <li><a href="/profiles"><i class="fa fa-user-plus"> </i> My Profile </a></li>
+          <li><a href="/campaigns"><i class="glyphicon glyphicon-stats"></i> Crowd Funding</a></li>
+      </ul>
+    </section>
+  </aside>

@@ -1,0 +1,10 @@
+
+handlers:
+- url: /chat
+  login: required
+  script: chat.app
+
+- url: /_ah/queue/chat-queue
+  login: admin
+  script: chat.app
+

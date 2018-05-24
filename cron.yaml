@@ -1,0 +1,16 @@
+
+cron:
+- description: Process Payments
+  url: /wallet/cron/paytoday
+  schedule: every day 00:05
+
+- description: Send Newsletter
+  url: /profiles/newsletters
+  schedule: every day 07:30
+
+- description: Send Facebook Group Messages
+  url: /social/facebook/cron/groups
+  schedule: every day 11:30
+
+
+

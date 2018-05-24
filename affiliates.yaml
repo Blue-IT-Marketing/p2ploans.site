@@ -1,0 +1,50 @@
+handlers:
+
+- url: /affiliates
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/fullstats
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/myaffiliates
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/promos
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/subscriptions
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/settings
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/enablepriority
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/enableautodownline
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/enablesocialmedia
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/transfertowallet
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/public/.*
+  login: required
+  script: affiliates.app
+
+- url: /affiliates/landingpage
+  login: required
+  script: affiliates.app
+

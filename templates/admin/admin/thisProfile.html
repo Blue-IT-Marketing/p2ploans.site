@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Profiles-Peer to Peer Loans-Community Driven Trading Platform</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/static/plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="/static/plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <link rel="stylesheet" href="/static/plugins/iCheck/all.css">
+  <link rel="stylesheet" href="/static/plugins/ionslider/ion.rangeSlider.css">
+  <link rel="stylesheet" href="/static/plugins/ionslider/ion.rangeSlider.skinNice.css">
+  <link rel="stylesheet" href="/static/plugins/bootstrap-slider/slider.css">
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="/static/plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="/static/plugins/datepicker/datepicker3.css">
+ <link rel="stylesheet" href="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <div id="MainHeaderDiv"></div>
+  <div id="SideBarDiv"></div>
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Loans Profiles | p2ploans.site
+        <small>Community Driven Peer to Peer Trading Platform</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Loans</li>
+        <li class="active">Profiles</li>
+      </ol>
+    </section>
+    <section class="content">
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="../static/dist/img/avatar04.png" alt="User profile picture">
+
+              <h3 class="profile-username text-center">{{ thisProfile.strProfileName }}</h3>
+
+              <p class="text-muted text-center">{{ thisProfile.strProfileIntro }}</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item" title="">
+                  <b>Wallet</b> <a class="pull-right">$ {{ thisProfile.strWallet }}.00</a>
+                </li>
+                <li class="list-group-item" title="">
+                  <b>Likes </b> <a class="pull-right"><i class="fa fa-thumbs-o-up"> </i> {{ thisProfile.strLikes }}</a>
+                </li>
+
+              </ul>
+              <a href="/profiles" class="btn btn-warning btn-block margin-bottom" title="Refresh" data-toggle="tab"><i class="fa fa-refresh"> </i> <strong> Refresh</strong> </a>
+              <a href="#MyProfile" class="btn btn-primary btn-block" title="Profiles" data-toggle="tab"><i class="fa fa-users"> </i> <strong>My Profile </strong> </a>
+              <a href="#PublicProfiles" class="btn btn-primary btn-block" title="Profiles" data-toggle="tab" id="PublicProfilesButt"><i class="fa fa-users"> </i> <strong>Public Profiles </strong> </a>
+              <a href="#Inbox" class="btn btn-primary btn-block" title="Messaging Centre" data-toggle="tab" id="LoadInboxButt"><i class="glyphicon glyphicon-inbox"> </i> <strong> Messages</strong></a>
+              <a href="#Wallet" class="btn btn-primary btn-block" data-toggle="tab" id="ShowWalletButt"> <i class="fa fa-credit-card"> </i> <strong>Wallet</strong></a>
+
+
+            </div>
+            <!-- /.box-body -->
+
+          </div>
+          <!-- /.box -->
+      <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Wall</h3>
+            </div>
+            <div class="box-body with-border">
+              <ul class="list-group list-group-unbordered">
+                  <li class="list-group-item" title="">
+                    <b>Funds Received </b> <a href="#" class="pull-right">$ {{ thisProfile.strTotalReceived }}.00 </a>
+                  </li>
+                  <li class="list-group-item" title="Users you have Previously Traded With">
+                    <b>Active Campaigns</b> <a href="#" class="pull-right"> 0 </a>
+                  </li>
+                  <li class="list-group-item" title="Users you have Previously Traded With">
+                    <b>Active Loans</b> <a href="#" class="pull-right"> 0 </a>
+                  </li>
+                  <li class="list-group-item" title="Users you have Previously Traded With">
+                    <b>Affiliates</b> <a href="#" class="pull-right"> 0 </a>
+                  </li>
+                </ul>
+
+                <a href="#Affiliate" class="btn btn-facebook btn-block" title=""  id="LoadAffiliateButt" data-toggle="tab" ><i class="fa fa-money"> </i> <strong> Affiliate</strong></a>
+                <a href="#PeerToPeerLoans" class="btn btn-facebook btn-block" title="" id="PeerToPeerLoansButt" data-toggle="tab"><i class="fa fa-money"> </i> <strong>Peer to Peer Loans</strong></a>
+          </div>
+          </div>
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Profile Information</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i>Profile Name</strong>
+              <p class="text-muted">
+                <span class="label label-info">{{ thisProfile.strProfileName }}</span>
+              </p>
+
+              <strong><i class="fa fa-book margin-r-5"></i>Introduction</strong>
+
+              <p class="text-muted">
+                <span class="label label-info">{{ thisProfile.strProfileIntro }}</span>
+              </p>
+              </div>
+
+              <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5" title=""></i>PayPal Email</strong>
+                  <p class="text-muted">
+                    <span class="label label-info">{{ thisProfile.strPayPalEmail }}</span>
+                  </p>
+              </div>
+
+            <!-- /.box-body -->
+              <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5" title="Normal Email to send notification information to"></i>Email</strong>
+
+              <p class="text-muted">
+                <span class="label label-info">{{ thisProfile.strPayPalEmail }}</span>
+              </p>
+
+                  <a href="#settings" class="btn btn-primary btn-block" title="Profile Settings" data-toggle="tab"><i class="glyphicon glyphicon-cog"> </i> <strong> Settings</strong></a>
+              </div>
+
+
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+
+            </ul>
+            <div class="tab-content">
+              <div class="active tab-pane" id="MyProfile">
+                <div class="box box-title with-border">
+                    <h3>Personal Profile</h3>
+                </div>
+
+                <div class="box box-primary with-border">
+                <form class="form-horizontal" name="editpersonalprofile" action="/profilepersonal" method="post">
+
+                  <div class="form-group">
+                    <label for="strProfileName" class="col-sm-2 control-label" title="">Profile Name</label>
+
+                    <div class="col-sm-10">
+                      {% if thisProfile %}
+                       <input type="text" class="form-control" id="strProfileName" name="vstrProfileName" placeholder="{{ thisProfile.strProfileName }}" value="{{ thisProfile.strProfileName }}">
+                      {% else %}
+                      <input type="text" class="form-control" id="strProfileName" name="vstrProfileName" placeholder="Profile Name">
+                      {% endif %}
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="strEmail" class="col-sm-2 control-label" title="">Email</label>
+
+                    <div class="col-sm-10">
+                      {% if thisProfile %}
+                        <input type="email" class="form-control" id="strEmail" name="vstrEmail" placeholder="{{ thisProfile.strEmail }}" value="{{ thisProfile.strEmail }}">
+                      {% else %}
+                        <input type="email" class="form-control" id="strEmail" name="vstrEmail" placeholder="Email Address">
+                      {% endif %}
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="strPayPalEmail" class="col-sm-2 control-label" title="">PayPal Email</label>
+
+                    <div class="col-sm-10">
+                      {% if thisProfile %}
+                        <input type="email" class="form-control" id="strPayPalEmail" name="vstrPayPalEmail" value="{{ thisProfile.strPayPalEmail }}">
+                      {% else %}
+                        <input type="email" class="form-control" id="strPayPalEmail" name="vstrPayPalEmail" placeholder="PayPal ID">
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="strProfileIntroduction" class="col-sm-2 control-label" title="">Introduction</label>
+
+                    <div class="col-sm-10">
+                      {% if thisProfile %}
+                      <textarea class="form-control" id="strProfileIntroduction" name="vstrProfileIntroduction" placeholder="{{ thisProfile.strProfileIntro }}"></textarea>
+                      {% else %}
+                      <textarea class="form-control" id="strProfileIntroduction" name="vstrProfileIntroduction" placeholder="Profile Introduction"></textarea>
+                      {% endif %}
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" id="TermsCheck"> I agree to the <a href="/terms">terms and conditions</a>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="button" class="btn btn-success btn-block" id="SaveProfileButt"><i class="glyphicon glyphicon-floppy-disk"> </i> <strong> Save</strong></button>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-6">
+                      <div id="SaveProfileINFDIV"></div>
+                    </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+              <div class="tab-pane" id="PublicProfiles">
+                  <div class="box box-info with-border">
+                      <div class="box box-title with-border">
+                          <h3>Public Profiles</h3>
+                      </div>
+                      <div id="PublicProfilesINFDiv"></div>
+                  </div>
+              </div>
+              <div class="tab-pane" id="Wallet">
+                  <div id="WalletInfDIV">
+
+                  </div>
+              </div>
+              <div class="tab-pane" id="Affiliate">
+                  <div class="box">
+                      <div class="box box-info with-border">
+                          <div class="box box-title with-border">
+                              <h3>Affiliate</h3>
+                          </div>
+                          <div class="box box-body with-border">
+                              <div id="AffiliateINFDiv"></div>
+
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="tab-pane" id="PeerToPeerLoans">
+                  <div class="box">
+                      <div class="box box-info with-border">
+                          <div class="box box-title with-border">
+                              <h3>Peer to Peer Loans</h3>
+                          </div>
+                          <div class="box box-body with-border">
+                              <div id="PeerToPeerLoansDIVInf"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="tab-pane" id="Campaigns">
+                <div class="box">
+                  <div class="box box-info with-border">
+                    <div class="box box-title with-border">
+                      <h3>My Campaigns</h3>
+                    </div>
+
+                    <div class="box box-body with-border">
+                          <div id="MyCampaignsDiv"></div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="Inbox">
+                 <div class="box">
+                   <div class="box box-info with-border">
+                     <div class="box box-title with-border">
+                          <h3>My Messages</h3>
+                     </div>
+                        <div id="InboxDivInf"></div>
+                   </div>
+                 </div>
+              </div>
+               <div class="tab-pane" id="settings">
+
+                 <!-- Insert the Messaging Interface Here -->
+                <div class="box box-primary">
+                   <div class="box box-title with-border">
+                        <h3>Settings</h3>
+                   </div>
+                  <div class="box-body">
+                   <form class="form-horizontal">
+                      <!-- checkbox -->
+                      <div class="form-group">
+                        <span class="label label-default" title="Set Enable if you would like the system to trade for you automatically">Personal Trade Settings</span>
+                        <label>
+                          {% if thisSettings.strAutoTrade == True %}
+                                <input type="checkbox" id="AutoTrade" name="AutoTrade" class="flat-red" value="YES" checked="checked">
+                          {% else %}
+                                <input type="checkbox" id="AutoTrade" name="AutoTrade" class="flat-red" value="YES">
+                          {% endif %}
+
+
+                          Auto Trade
+                        </label>
+                      </div>
+
+                      <!-- checkbox -->
+                      <div class="form-group">
+                        <span class="label label-default" title="Set Enable if you would like the system to automatically withdraw your available funds to your Account when ready">Wallet Settings</span>
+                        <label>
+                            {% if thisSettings.strAutoWithDraw == True %}
+                                <input type="checkbox" id="AutoWithDraw" name="AutoWithDraw" class="flat-red" value="YES" checked="checked">
+                            {% else %}
+                                <input type="checkbox" id="AutoWithDraw" name="AutoWithDraw" class="flat-red" value="YES">
+                            {% endif %}
+                          Wallet Auto WithDraw
+                        </label>
+                      </div>
+
+
+
+                      <!-- checkbox -->
+                      <div class="form-group">
+                        <span class="label label-default" title="Select the Active Profile Between your Business and Personal Profile">Profile Settings</span>
+                        <label>
+                            {% if thisSettings.strBusinessProfile == True %}
+                                <input type="checkbox" id="BussinessProfile" class="flat-red" value="YES" checked="checked">
+                            {% else %}
+                                <input type="checkbox" id="BussinessProfile" class="flat-red" value="YES">
+                            {% endif %}
+                          Business
+                        </label>
+                      </div>
+
+                                           <!-- checkbox -->
+                      <div class="form-group">
+                        <span class="label label-default" title="For each important event send notifications to my Email Address (Email Set on Subscription and Profile Settings)">Messaging Settings</span>
+                        <label>
+                          {% if thisSettings.strSendNotifications == True %}
+                                <input type="checkbox" id="SendNotifications" class="flat-red" value="YES" checked="checked">
+                          {% else %}
+                                <input type="checkbox" id="SendNotifications" class="flat-red" value="YES">
+                          {% endif %}
+                          Send Email Notifications
+                        </label>
+                      </div>
+
+                                           <!-- checkbox -->
+                      <div class="form-group">
+                        <span class="label label-default" title="Privacy Settings Affect your publicly listed Profile and also your Chat Visibility on Social">Privacy Settings</span>
+                        <label>
+                          {% if thisSettings.strProfilePrivate == True %}
+                                <input type="checkbox" id="MakeProfilePrivate" class="flat-red" value="YES" checked="checked">
+                          {% else %}
+                                <input type="checkbox" id="MakeProfilePrivate" class="flat-red" value="YES">
+                          {% endif %}
+
+                          Private Profile
+                        </label>
+                        <label>
+
+                            {% if thisSettings.strAnonymous == True %}
+                                <input type="checkbox" id="MakeChatPrivate" class="flat-red" value="YES" checked="checked">
+                            {% else %}
+                                <input type="checkbox" id="MakeChatPrivate" class="flat-red" value="YES">
+                            {% endif %}
+
+                          Private Chat
+                        </label>
+                      </div>
+                  <div class="form-group">
+                    <div class="col-sm-6">
+                      <button type="button" class="btn btn-success btn-block" id="SaveSettingsButt"><i class="fa fa-cog"> </i> <strong>Save Settings</strong></button>
+                    </div>
+                  </div>
+                       <div class="form-group">
+                           <div class="col-sm-6">
+                               <div id="SaveSettingsINFDIV"></div>
+                           </div>
+                       </div>
+                   </form>
+                    </div>
+
+                </div>
+              </div>
+
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+    </section>
+  </div>
+  <div id="FooterDiv"></div>
+
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/moment.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/dist/js/pages/admin/thisprofile.js"></script>
+<script src="/static/dist/js/pages/loaders.js"></script>
+</body>
+</html>

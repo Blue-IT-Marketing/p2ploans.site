@@ -1,0 +1,26 @@
+handlers:
+
+- url: /activate
+  login: required
+  script: admin.app
+- url: /activate/code
+  login: required
+  script: admin.app
+- url: /admin
+  login: admin
+  script: admin.app
+- url: /admin/profiles
+  login: admin
+  script: admin.app
+- url: /admin/profiles/.*
+  login: admin
+  script: admin.app
+- url: /admin/withdrawals
+  login: admin
+  script: admin.app
+- url: /admin/messaging
+  login: admin
+  script: admin.app
+- url: /admin/messaging/read/.*
+  login: admin
+  script: admin.app

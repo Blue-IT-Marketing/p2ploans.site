@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+    <div class="box box-info with-border">
+        <div class="box box-header with-border">
+            <h3 class="box-title">My Promotions</h3>
+        </div>
+        <div class="box box-body with-border">
+            <ul class="list-group">
+
+                {% if thisPromotions.strEnablePriorityListing == True %}
+                    <li class="list-group-item"><button type="button" class="btn btn-primary btn-block" id="DisablePriorityListingButt"><strong> Priority Listing Enabled @ (<i class="fa fa-dollar"> </i> {{ thisPromotions.strPriorityListing }}.00) </strong></button> </li>
+                {% else %}
+                    <li class="list-group-item"><button type="button" class="btn btn-success btn-block" id="EnablePriorityButt"><strong> Enable Priority Listing (<i class="fa fa-dollar"> </i> {{ thisPromotions.strPriorityListing }}.00)</strong></button> </li>
+                {% endif %}
+
+
+                {% if thisPromotions.strEnableAutoDownLine == True %}
+                    <li class="list-group-item"><button type="button" class="btn btn-primary btn-block" id="DisableAutoDownLineButt"><strong> Auto Down Line Enabled @ (<i class="fa fa-dollar"> </i> {{ thisPromotions.strAutoDownLine }}.00)</strong></button> </li>
+                {% else %}
+                    <li class="list-group-item"><button type="button" class="btn btn-success btn-block" id="EnableAutoDownLineButt"><strong> Enable Auto Down Line (<i class="fa fa-dollar"> </i> {{ thisPromotions.strAutoDownLine }}.00)</strong></button> </li>
+                {% endif %}
+
+
+                {% if thisPromotions.strEnableSocialMediaPromo == True %}
+                    <li class="list-group-item"><button type="button" class="btn btn-primary btn-block" id="DisableSocialMediaButt"><strong> Social Media Promos Enabled @ (<i class="fa fa-dollar"> </i> {{ thisPromotions.strSocialMediaPromo }}.00)</strong></button> </li>
+                {% else %}
+                    <li class="list-group-item"><button type="button" class="btn btn-success btn-block" id="EnableSocialMediaButt"><strong> Enable Social Media Promotions (<i class="fa fa-dollar"> </i> {{ thisPromotions.strSocialMediaPromo }}.00)</strong></button> </li>
+                {% endif %}
+
+            </ul>
+        </div>
+        <div class="box box-body with-border">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Total Subscriptions : <i class="fa fa-dollar"> </i>  {{ thisPromotions.strTotalPromos }}.00</strong></li>
+            </ul>
+            <div id="PromotionsINFDiv"></div>
+        </div>
+    </div>
+    <div class="box box-info with-border">
+        <div class="box box-header with-border">
+            <h3 class="box-title">Facebook Group Posts</h3>
+        </div>
+        <div class="box box-body with-border">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <strong>you can get your api key from facebook by following this link <a href="https://developers.facebook.com/tools/explorer"> <i class="fa fa-facebook"> </i> https://developers.facebook.com/tools/explorer</a> </strong>
+                </div>
+                <div class="form-group">
+                    <label for="strGraphApiKey" class="control-label pull-left" title=""><strong> <i class="fa fa-key"> </i> Api Key</strong></label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="strGraphApiKey" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strFacebookPost" class="control-label pull-left" title="">Facebook Post</label>
+                    <div class="col-md-12">
+                        <textarea id="strFacebookPost" cols="94" rows="12"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strGroupIDs" class="control-label pull-left" title="">Facebook Group ID's</label>
+                    <div class="col-md-12">
+                        <textarea id="strGroupIDs" cols="94" rows="12"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="control-label pull-left" title=""></label>
+                    <div class="col-md-12">
+                          <button type="button" class="btn btn-block btn-social btn-facebook" id="CreatePostButton">
+                            <i class="fa fa-facebook"></i> Create Posts
+                          </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="box box-footer with-border">
+            <div id="FacebookPostINFDiv"></div>
+        </div>
+    </div>
+
+<script src="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="/static/dist/js/pages/affiliate/promos.js"></script>
+<script>$(function () {$("#strFacebookPost").wysihtml5();});</script>
+<script>$(function () {$("#strGroupIDs").wysihtml5();});</script>

@@ -1,0 +1,225 @@
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $('#createCampaignButt').click(function () {
+
+            var vstrCampaignType = document.getElementById('strCampaignType').value;
+            var vstrCampaignName = document.getElementById('strCampaignName').value;
+            var vstrCampaignIntro = document.getElementById('strCampaignIntro').value;
+            var vstrCampaignBody = document.getElementById('strCampaignBody').value;
+            var vstrFundMe = document.getElementById('strFundMe').value;
+
+
+            var dataString = '&vstrCampaignType=' + vstrCampaignType + '&vstrCampaignName='+vstrCampaignName +
+                    '&vstrCampaignIntro='+ vstrCampaignIntro + '&vstrCampaignBody=' + vstrCampaignBody +
+                    '&vstrFundMe=' + vstrFundMe;
+            $.ajax({
+                type: "get",
+                url: "/campaigns/create",
+                data: dataString,
+                cache: false,
+                success: function (html) {
+                    $('#CampaignDivInf').html(html)
+                }
+            });
+        });
+    });
+</script>
+
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $('#saveCampaignButt').click(function () {
+
+            var vstrCampaignType = document.getElementById('strCampaignType').value;
+            var vstrCampaignName = document.getElementById('strCampaignName').value;
+            var vstrCampaignIntro = document.getElementById('strCampaignIntro').value;
+            var vstrCampaignBody = document.getElementById('strCampaignBody').value;
+            var vstrFundMe = document.getElementById('strFundMe').value;
+
+
+            var dataString = '&vstrCampaignType=' + vstrCampaignType + '&vstrCampaignName='+vstrCampaignName +
+                    '&vstrCampaignIntro='+ vstrCampaignIntro + '&vstrCampaignBody=' + vstrCampaignBody +
+                    '&vstrFundMe=' + vstrFundMe;
+            $.ajax({
+                type: "post",
+                url: "/campaigns/create",
+                data: dataString,
+                cache: false,
+                success: function (html) {
+                    $('#CampaignDivInf').html(html)
+                }
+            });
+        });
+    });
+</script>
+  <table id="CampaignList" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                  <td>Campaign ID</td>
+                  <td>Campaign Name</td>
+                  <td>Campaign Intro</td>
+                  <td>Start Date</td>
+                  <td>End Date</td>
+                  <td>Boost</td>
+                  <td>Active</td>
+              </tr>
+
+              </thead>
+              <tbody>
+              {% for thisCampaign in thisCampaignsList %}
+              <tr>
+                  <td><a href="/campaigns/detail/{{ thisCampaign.strCampaignID }}">{{ thisCampaign.strCampaignID }}</a></td>
+                  <td>{{ thisCampaign.strCampaignName }}</td>
+                  <td>{{ thisCampaign.strCampaignIntro }}</td>
+                  <td>{{ thisCampaign.strStartDate }}</td>
+                  <td>{{ thisCampaign.strEndDate }}</td>
+                  <td>{{ thisCampaign.strBoost }}</td>
+                  <td>{{ thisCampaign.strActive }}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+              <tfoot>
+              <tr>
+                  <td>Campaign ID</td>
+                  <td>Campaign Name</td>
+                  <td>Campaign Intro</td>
+                  <td>Start Date</td>
+                  <td>End Date</td>
+                  <td>Boost</td>
+                  <td>Active</td>
+              </tr>
+              </tfoot>
+  </table>
+
+  <div class="box">
+      <div class="box box-info with-border">
+          <div class="box box-title with-border">
+              <h3>Create Campaigns</h3>
+          </div>
+          <div class="box box-body with-border">
+              <form class="form-horizontal">
+                  <div class="form-group">
+                      <label for="strCampaignType" class="col-sm-3 control-label pull-left" title="Campaign Type">Campaign Type</label>
+                      <div class="col-sm-6">
+                          <select class="form-control select2" style="width: 100%;"  id="strCampaignType">
+                              <option value="Personal">Personal</option>
+                              <option value="Business">Business</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="strCampaignName" class="col-sm-3 control-label pull-left" title="Campaign Type">Campaign Name</label>
+                      <div class="col-sm-6">
+                          <input type="text" class="form-control" id="strCampaignName" name="vstrCampaignName" placeholder="Campaign Name" value="">
+                      </div>
+                  </div>
+
+
+
+                <div class="box box-info with-border">
+                    <div class="box-header with-border">
+                      <h3 class="box-title with-border">Campaign Intro
+                        <small>Your Campaign Introduction</small>
+                      </h3>
+                      <!-- tools box -->
+                      <div class="pull-right box-tools">
+                        <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                          <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+                          <i class="fa fa-times"></i></button>
+                      </div>
+                      <!-- /. tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body pad">
+
+                            <textarea id="strCampaignIntro" name="vstrCampaignIntro" rows="12" cols="84">
+                                                    Start creating your introduction...
+                            </textarea>
+
+                    </div>
+                </div>
+
+                <div class="box box-info with-border">
+                    <div class="box-header with-border">
+                      <h3 class="box-title with-border">Campaign Body
+                        <small>Your Campaign Body</small>
+                      </h3>
+                      <!-- tools box -->
+                      <div class="pull-right box-tools">
+                        <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                          <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+                          <i class="fa fa-times"></i></button>
+                      </div>
+                    </div>
+                    <div class="box-body pad">
+
+                            <textarea id="strCampaignBody" name="vstrCampaignBody" rows="22" cols="84">
+                                                    Start creating your Campaign...
+                            </textarea>
+
+                    </div>
+                </div>
+
+
+
+
+
+                  <div class="form-group">
+                      <label for="strFundMe" class="col-sm-3 control-label pull-left" title="Campaign Introduction">Fund Me</label>
+                      <div class="col-sm-6">
+                          <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" class="form-control" id="strFundMe" name="vstrFundMe">
+                            <span class="input-group-addon">.00</span>
+                          </div>
+                      </div>
+                  </div>
+
+                <div class="form-group">
+                <label  for="strCampaignSchedule" class="col-sm-3 control-label pull-left" title="Campaign Introduction">Campaign Schedule:</label>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                      <button type="button" class="btn btn-default pull-right" id="strCampaignSchedule">
+                        <span>
+                          <i class="fa fa-calendar"></i> Campaign Will Run for the Next Thirty Days
+                        </span>
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                    </div>
+                </div>
+              </div>
+
+               <div class="form-group">
+                   <label class="col-sm-3 control-label pull-left"></label>
+                   <div class="col-sm-6">
+                       <button type="button" class="btn btn-success btn-block" id="createCampaignButt"><i class="glyphicon glyphicon-pencil"> </i> <strong>Activate Campaign</strong> </button>
+                       <button type="button" class="btn btn-facebook btn-block" id="saveCampaignButt"><i class="glyphicon glyphicon-pencil"> </i> <strong>Save Campaign</strong></button>
+                   </div>
+               </div>
+               <div class="form-group">
+                   <div class="col-sm-6">
+                       <div id="CampaignDivInf"></div>
+                   </div>
+               </div>
+
+              </form>
+          </div>
+      </div>
+  </div>
+<script src="/static/dist/js/ckeditorstandard/ckeditor.js"></script>
+<script src="/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>
+  $(function () {
+
+    CKEDITOR.replace('strCampaignIntro');
+    $(".textarea").wysihtml5();
+  });
+</script>
+ <script>
+  $(function () {
+
+    CKEDITOR.replace('strCampaignBody');
+    $(".textarea").wysihtml5();
+  });
+</script>

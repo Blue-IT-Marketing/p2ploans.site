@@ -1,0 +1,9 @@
+handlers:
+
+- url: /wallet/cron/paytoday
+  login: admin
+  script: Wallet.app
+- url: /profiles/newsletters
+  login: admin
+  script: profiles.app
+

@@ -1,0 +1,48 @@
+handlers:
+
+- url: /p2ploans
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/yourmoney
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/loanrequests
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/activeloans
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/availableloans
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/loanstaken
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/availableloans/.*
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/financiers
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/loanlimit
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/transferavailloanpocket
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/financiers/messages
+  login: required
+  script: p2ploans.app
+
+- url: /p2ploans/list
+  script: p2ploans.app

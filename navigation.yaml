@@ -1,0 +1,19 @@
+handlers:
+
+- url: /navigation/header
+  script: navigation.app
+- url: /navigation/sidebar
+  script: navigation.app
+- url: /navigation/footer
+  script: navigation.app
+
+- url: /navigation/step/header
+  script: navigation.app
+
+- url: /navigation/affiliate/header
+  script: navigation.app
+- url: /navigation/affiliate/sidebar
+  script: navigation.app
+- url: /navigation/affiliate/footer
+  script: navigation.app
+

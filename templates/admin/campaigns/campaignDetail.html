@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="rkt7iLTBYZuRLjY_Sxg4uDDNusOJnuhHCDIGPwAahtk" />
+  <title>Profiles-Peer to Peer Loans-Community Driven Trading Platform</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/static/plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="/static/plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <link rel="stylesheet" href="/static/plugins/iCheck/all.css">
+  <link rel="stylesheet" href="/static/plugins/ionslider/ion.rangeSlider.css">
+  <link rel="stylesheet" href="/static/plugins/ionslider/ion.rangeSlider.skinNice.css">
+  <link rel="stylesheet" href="/static/plugins/bootstrap-slider/slider.css">
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="/static/plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="/static/plugins/datepicker/datepicker3.css">
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#MainHeaderDiv').load("/navigation/header")
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#SideBarDiv').load("/navigation/sidebar")
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#FooterDiv').load("/navigation/footer")
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#ApplyBoostBtn').click(function () {
+
+            var vstrapply_boost = document.getElementById('strapply_boost').value;
+            var vstrCampaignID = document.getElementById('strCampaignID').value;
+
+
+            var dataString = '&vstrapply_boost=' + vstrapply_boost + '&vstrCampaignID=' + vstrCampaignID;
+            $.ajax({
+                type: "get",
+                url: "/campaigns/applyboost",
+                data: dataString,
+                cache: false,
+                success: function (html) {
+                    $('#BoostDivINF').html(html)
+                }
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#PromoteBtn').click(function () {
+            var vstrCampaignID = document.getElementById('strCampaignID').value;
+
+            var dataString = '&vstrCampaignID=' + vstrCampaignID;
+            $.ajax({
+                type: "post",
+                url: "/campaigns/applyboost",
+                data: dataString,
+                cache: false,
+                success: function (html) {
+                    $('#BoostDivINF').html(html)
+                }
+            });
+        });
+    });
+</script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <div id="MainHeaderDiv"></div>
+  <div id="SideBarDiv"></div>
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Campaign | p2ploans.site
+        <small>Community Driven Peer to Peer Trading Platform</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Campaign</li>
+        <li class="active">Details</li>
+      </ol>
+    </section>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="../../../static/dist/img/boxed-bg.png" alt="Campaign Image">
+
+              <h3 class="profile-username text-center">{{ thisCampaign.strCampaignName }}</h3>
+
+              <p class="text-muted text-center">{{ thisCampaign.strCampaignIntro }}</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item" title="">
+                  <b>Fund Me </b> <a class="pull-right">$ {{ thisCampaign.strFundMe }}.00</a>
+                </li>
+                <li class="list-group-item" title="">
+                  <b>Received Funds </b> <a class="pull-right">$ {{ thisCampaign.strReceivedFunds }}.00</a>
+                </li>
+                <li class="list-group-item" title="">
+                  <b>Likes </b> <a class="pull-right"><i class="fa fa-thumbs-o-up"> </i> {{ thisCampaign.strLikes }}</a>
+                </li>
+
+                <li class="list-group-item" title="">
+                  <b>Shares</b> <a class="pull-right"><i class="fa fa-share-alt"> </i> {{ thisCampaign.strShares }}</a>
+                </li>
+              </ul>
+              <a href="{{ thisCampaign.strInternalURL }}" class="btn btn-primary btn-block" title="Profiles"><i class="fa fa-users"> </i> <strong>Refresh Campaign </strong> </a>
+              <a href="#" class="btn btn-primary btn-block" title="Profiles"><i class="fa fa-pencil"> </i> <strong>Edit Campaign </strong> </a>
+            </div>
+          </div>
+      <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Campaign Wall</h3>
+            </div>
+            <div class="box-body with-border">
+              <ul class="list-group list-group-unbordered">
+                  <li class="list-group-item" title="">
+                    <b>Boost Value</b> <a href="#" class="pull-right">{{ thisCampaign.strBoost }}</a>
+                  </li>
+                  <li class="list-group-item" title="">
+                    <b>Promoted </b> <a href="#" class="pull-right">{{ thisCampaign.strPromoted }}</a>
+                  </li>
+
+                  <li class="list-group-item" title="Users you have Previously Traded With">
+                    <b>Start Date</b> <a href="#" class="pull-right">{{ thisCampaign.strStartDate }}</a>
+                  </li>
+                  <li class="list-group-item" title="Users you have Previously Traded With">
+                    <b>End Date</b> <a href="#" class="pull-right">{{ thisCampaign.strEndDate }}</a>
+                  </li>
+                </ul>
+                <div id="BoostDivINF"></div>
+                <input id="strapply_boost" type="text" name="vstrapply_boost" value="">
+                <input type="hidden" id="strCampaignID" value="{{ thisCampaign.strCampaignID }}">
+                <button class="btn btn-primary btn-block" id="ApplyBoostBtn"><i class="glyphicon glyphicon-list-alt"> </i> <strong> Apply Boost</strong></button>
+                <button class="btn btn-primary btn-block" id="PromoteBtn"><i class="glyphicon glyphicon-list-alt"> </i> <strong> Promote Campaign</strong></button>
+          </div>
+          </div>
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Campaign Promotions</h3>
+
+            </div>
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i>Facebook</strong>
+              <p class="text-muted">
+                <span class="label label-info">Facebook Campaign</span>
+              </p>
+              <strong><i class="fa fa-book margin-r-5"></i>Twitter</strong>
+              <p class="text-muted">
+                <span class="label label-info">Twitter Campaign</span>
+              </p>
+              </div>
+              <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5" title=""></i>Google Plus</strong>
+                  <p class="text-muted">
+                    <span class="label label-info">Google Plus Campaign</span>
+                  </p>
+              </div>
+              <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5" title=""></i>Email</strong>
+              <p class="text-muted">
+                <span class="label label-info">Email Campaign</span>
+              </p>
+                 <a href="/profiles" class="btn btn-facebook btn-block" title="" id="MyCampaignsButt"><i class="glyphicon glyphicon-open-file"> </i> <strong>My Profile</strong></a>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+
+            </ul>
+            <div class="tab-content">
+              <div class="active tab-pane" id="CampaignDetail">
+                <div class="box box-title with-border">
+                    <h3>Campaign Details</h3>
+                </div>
+                 <div class="box-body">
+                      <small>Campaign Link:</small>
+                      <strong><i class="fa fa-link margin-r-5"> </i><a href="{{ thisCampaign.strCampaignURL }}">{{ thisCampaign.strCampaignURL }}</a></strong>
+                </div>
+
+                <div class="box box-primary with-border">
+                    <div class="box box-info with-border">
+                        {{ thisCampaign.strCampaignBody }}
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div id="FooterDiv"></div>
+
+  <div class="control-sidebar-bg"></div>
+</div>
+
+<script src="/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/dist/js/app.min.js"></script>
+<script src="/static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/plugins/fastclick/fastclick.min.js"></script>
+<script src="/static/dist/js/moment.min.js"></script>
+
+<script>
+  $(function () {
+    /* BOOTSTRAP SLIDER */
+    $('.slider').slider();
+
+    /* ION SLIDER */
+    $("#strapply_boost").ionRangeSlider({
+      min: 0,
+      max: 10,
+      from: 0,
+      to: 10,
+      type: 'single',
+      step: 1,
+      prefix: "$",
+      prettify: true,
+      hasGrid: true
+    });
+  });
+</script>
+</body>
+</html>
+
+

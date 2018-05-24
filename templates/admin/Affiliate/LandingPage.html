@@ -1,0 +1,49 @@
+
+<div class="box">
+    <div class="box box-info with-border">
+        <div class="box box-header with-border">
+            <h3 class="box-title">My Settings</h3>
+        </div>
+        <div class="box box-body with-border">
+            <div class="box">
+                <div class="box box-info with-border">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-bitbucket btn-block" id="AffiliateLinkButt"><strong>Affiliate Link</strong></button>
+                            <button type="button" class="btn btn-bitbucket btn-block" id="SEOTitleButt"><strong>SEO Title</strong></button>
+                            <button type="button" class="btn btn-bitbucket btn-block" id="SEODescriptionButt"><strong>SEO Description</strong></button>
+                            <button type="button" class="btn btn-bitbucket btn-block" id="LPHeadingButt"><strong>Landing Page Heading</strong></button>
+                            <button type="button" class="btn btn-bitbucket btn-block" id="LPIntroButt"><strong>Landing Page Introduction</strong></button>
+                            <button type="button" class="btn btn-bitbucket btn-block" id="LPBodyButt"><strong>Landing Page Body</strong></button>
+                            <button type="button" class="btn btn-bitbucket btn-block" id="LPFooterButt"><strong>Landing Page Footer</strong></button>
+                        </div>
+                        <div class="col-md-9">
+                            <div id="SettingsINFDiv"></div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="box box-info with-border">
+                            <div class="box box-title with-border">
+                                <h3>Complete Landing Page</h3>
+
+                            </div>
+                            <div class="box box-body with-border">
+                                <a href="/affiliates/public/{{ thisLandingPage.strReference }}" type="button" class="btn btn-bitbucket btn-block"><strong> <i class="fa fa-link"> </i> {{ thisLandingPage.strAffiliateLink }} </strong></a>
+                                <button type="button" class="btn btn-facebook btn-block margin-bottom"><strong> <i class="fa fa-share"> </i> Share </strong></button>
+                                <button type="button" class="btn btn-facebook btn-block" id="CreateDefaultLandingPageButt"><strong> <i class="fa fa-magic"> </i> Create Default Landing Page </strong></button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/static/dist/js/pages/affiliate/landingpage.js"></script>
